@@ -1,0 +1,3 @@
+SDL2=2.0.3
+SDL2_mixer=2.0.0
+libSDL2pp=0.7.0

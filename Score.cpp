@@ -399,7 +399,11 @@ namespace TTSP
                                         const char keyCh = keyStr.at(i);
                                         if(keyCh != '0')
                                         {
-                                            const size_t key = keyCh - '0';
+                                            size_t key = keyCh - '0';
+                                            if(subStrMode != SUBSTRMODE_DEFAULT)
+                                            {
+                                                key = 0;
+                                            }
                                             objects_[ObjectLaneIdxKeyBegin + key].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
                                         }
                                     }

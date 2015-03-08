@@ -40,7 +40,8 @@ namespace TTSP
 
         const SDL_Color LaneInnerLineColor = {64, 64, 64, 255};
         const SDL_Color LaneOuterLineColor = {255, 255, 255, 255};
-        // const SDL_Color LaneMeasureLineColor = {128, 128, 128, 255};
+        const SDL_Color LaneSplitterColor = {128, 128, 128, 255};
+        // const SDL_Color LaneSubMeasureLineColor = {128, 128, 128, 255};
 
         const uint16_t NoteHeight = 4;
 
@@ -168,6 +169,16 @@ namespace TTSP
                 static_cast<int>(x) + lanePos[i] + LaneWidths[i] + 1, static_cast<int>(y) + height - 1);
             if(i == rightmostLaneIdx)
             {
+                renderer.SetDrawColor(LIST_RGBA(LaneInnerLineColor));
+            }
+
+            // fill
+            if(i == LaneIdxSplitter)
+            {
+                renderer.SetDrawColor(LIST_RGBA(LaneSplitterColor));
+
+                renderer.FillRect(SDL2pp::Rect(SDL2pp::Point(static_cast<int>(x) + lanePos[i] + 1, y), SDL2pp::Point(LaneWidths[i], height)));
+
                 renderer.SetDrawColor(LIST_RGBA(LaneInnerLineColor));
             }
         }

@@ -12,7 +12,7 @@ namespace TTSP
         const int ScreenHeight = 600;
     }
 
-    int run(int argc, char **argv)
+    int run(int /*argc*/, char **/*argv*/)
     {
         try
         {
@@ -28,6 +28,9 @@ namespace TTSP
             std::shared_ptr<Score> score;
             ScorePlayback scorePlayback;
 
+            score.reset(new Score());
+            scorePlayback.score(score);
+
             SDL_Event e;
             bool quit = false;
 
@@ -35,6 +38,15 @@ namespace TTSP
             std::chrono::steady_clock::time_point prev;
 
             std::chrono::steady_clock::time_point prevFrameMeasurePoint = now;
+
+            uint64_t fpsBy100 = 0;
+
+            bool playing = false;
+
+            auto updateTitle = [&window, &fpsBy100, &scorePlayback]()
+            {
+                window.SetTitle(fmt::format("{}: HS {} ({}.{:02} fps)", WindowTitle, scorePlayback.hiSpeed(), fpsBy100 / 100, fpsBy100 % 100));
+            };
 
             while(!quit)
             {
@@ -47,6 +59,50 @@ namespace TTSP
                             quit = true;
                         }
                         break;
+
+                    case SDL_KEYDOWN:
+                        switch(e.key.keysym.sym)
+                        {
+                        case SDLK_UP:
+                            scorePlayback.hiSpeed(scorePlayback.hiSpeed() + 10);
+                            updateTitle();
+                            break;
+
+                        case SDLK_DOWN:
+                            if(scorePlayback.hiSpeed() > 10)
+                            {
+                                scorePlayback.hiSpeed(scorePlayback.hiSpeed() - 10);
+                                updateTitle();
+                            }
+                            break;
+
+                        case SDLK_RIGHT:
+                            {
+                                const uint32_t position = scorePlayback.position();
+                                scorePlayback.position(position + ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed()));
+                            }
+                            break;
+
+                        case SDLK_LEFT:
+                            {
+                                const uint32_t position = scorePlayback.position();
+                                const uint32_t gap = ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed());
+                                if(position >= gap)
+                                {
+                                    scorePlayback.position(position - gap);
+                                }
+                                else
+                                {
+                                    scorePlayback.position(0);
+                                }
+                            }
+                            break;
+
+                        case SDLK_SPACE:
+                            playing = !playing;
+                            break;
+                        }
+                        break;
                     }
                 }
 
@@ -54,31 +110,33 @@ namespace TTSP
                 now = std::chrono::steady_clock::now();
                 const std::chrono::nanoseconds interval = now - prev;
 
-                scorePlayback.progress(interval);
+                if(playing)
+                {
+                    scorePlayback.progress(interval);
+                }
 
                 screen.render(renderer, &scorePlayback, interval);
 
                 // FPS measure
-                const std::chrono::milliseconds frameMeasureInterval = std::chrono::duration_cast<std::chrono::milliseconds>(now - prevFrameMeasurePoint);
-                if(frameMeasureInterval.count() >= 5000)
+                static const std::chrono::milliseconds FrameMeasureInterval(5000);
+                const std::chrono::milliseconds currentFrameMeasureInterval = std::chrono::duration_cast<std::chrono::milliseconds>(now - prevFrameMeasurePoint);
+                if(currentFrameMeasureInterval >= FrameMeasureInterval)
                 {
-                    const uint64_t fpsBy100 = screen.pullFrameCount() * 100ull * 1000ull / static_cast<uint64_t>(frameMeasureInterval.count());
-
-                    char buf[50];
-                    sprintf_s(buf, "%s (%llu.%02llu fps)", WindowTitle, fpsBy100 / 100, fpsBy100 % 100);
-
-                    window.SetTitle(buf);
+                    fpsBy100 = screen.pullFrameCount() * 100ull /* percent */ * 1000ull /* millisec */ / static_cast<uint64_t>(currentFrameMeasureInterval.count());
+                    updateTitle();
 
                     prevFrameMeasurePoint = now;
                 }
             }
         }
-        catch(const SDL2pp::Exception &)
+        catch(const SDL2pp::Exception &e)
         {
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", fmt::format("SDL2pp Exception: {}", e.what()).c_str(), nullptr);
             return 1;
         }
-        catch(const std::exception &)
+        catch(const std::exception &e)
         {
+            SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error", fmt::format("Exception: {}", e.what()).c_str(), nullptr);
             return 1;
         }
 

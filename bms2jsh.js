@@ -568,12 +568,12 @@ function bars_(n, mn) {
 
             if (cn[h][n]) {
                 for (cni = cn[h][n].length - 1; cni >= 0; cni--) {
-                    cnz = cn[h][n][cni][0];
-                    cnp = Math.floor(cn[h][n][cni][1] * hs);
+                    cnz = cn[h][n][cni][0]; // key
+                    cnp = Math.floor(cn[h][n][cni][1] * hs); // start position (per 128 at 4/4)
                     cnhtmp = cn[h][n][cni][2];
                     if (cnhtmp == undefined) cnhtmp = 30;
-                    cnh = Math.floor(cnhtmp * hs);
-                    cnf = cn[h][n][cni][3];
+                    cnh = Math.floor(cnhtmp * hs); // size (per 128 at 4/4)
+                    cnf = cn[h][n][cni][3]; // cn type (1: start note, 2: end note, 3: both, 0: none of them)
                     if (cnf == undefined) cnf = 3;
                     if (!cn[h][n][cni][h + 3]) cn[h][n][cni][h + 3] = [];
                     cnsrd = cn[h][n][cni][h + 3][n];
@@ -668,10 +668,13 @@ function bars_(n, mn) {
 
             if (sdd.charAt(0) == "#") {
                 sft++;
-                v2c = 0;
+                v2c = 0; // mode 1 (v2o string length selector?, '-'일 경우 1, '_'일 경우 2가 됨)
                 while (sft < sdd.length) {
                     v2o = "";
                     v2v = (v2c ? 1 : 3) * ln[n] / 6;
+                    // v2t: mode 2 (v2o 해석 방법. 0일 경우 단순 반복, 1일 경우 base64 decode?, 2일 경우는?)
+                    // v2s: 노트 시작 위치
+                    // v2p: 노트 간격
                     switch (sdd.charAt(sft)) {
                         case "C": v2s = 0; v2p = 192; v2t = 0; if (!v2c) v2o = sdd.charAt(++sft); sft++; break;
                         case "c": v2s = 96; v2p = 192; v2t = 0; if (!v2c) v2o = sdd.charAt(++sft); sft++; break;
@@ -699,9 +702,14 @@ function bars_(n, mn) {
                         case "1": case "2": case "3": case "4": case "5": case "6": case "7":
                             v2o = sdd.substring(sft, sft + 3); v2t = 2; sft += 3; break;
                         case "9": v2o = "1" + sdd.substring(sft + 2, sft + 4);
-                        case "8": for (i2 = 0; i2 < 6; i2++) {
-                            if (b64.indexOf(sdd.charAt(sft + 1)) & (1 << i2)) v2o += (i2 + 2) + sdd.substring(sft + 2, sft + 4);
-                        } v2t = 2; sft += 4; break;
+                        case "8":
+                            for (i2 = 0; i2 < 6; i2++) {
+                                if (b64.indexOf(sdd.charAt(sft + 1)) & (1 << i2))
+                                    v2o += (i2 + 2) + sdd.substring(sft + 2, sft + 4);
+                            }
+                            v2t = 2;
+                            sft += 4;
+                            break;
 
                         case "-": v2c = 1; sft++; break;
                         case "_": v2o = (sft == sdd.length - 1) ? "AA" : sdd.substring(sft + 1); v2c = v2t = 2; break;
@@ -710,7 +718,8 @@ function bars_(n, mn) {
                     }
                     if (sdd.charAt(sft - 1) == "-") continue;
 
-                    v2k = "";
+                    // v2o -> v2k pass
+                    v2k = ""; // keys
                     if (v2t == 1) {
                         for (i2 = 0; i2 < v2o.length; i2++) {
                             if (v2c == 0) {
@@ -724,6 +733,8 @@ function bars_(n, mn) {
                     } else if (v2t == 0) {
                         for (i2 = v2s; i2 < ln[n]; i2 += v2p) v2k += (v2c ? "1" : v2o);
                     }
+
+                    // render v2k keys
                     if (v2t != 2) {
                         for (v2i = 0, i2 = v2s; i2 < ln[n]; v2i++, i2 += v2p) {
                             if ((ob2 = v2k.charAt(v2i)) != 0) {
@@ -755,10 +766,14 @@ function bars_(n, mn) {
                                     : (sh - 1) * (98 - d * 7)) + "px'>";
                             }
                         }
-                    } else {
+                    } else { // if (v2t != 2) {
                         for (i2 = 0; i2 < v2o.length; i2 += 2) {
-
-                            if (v2c == 0) { ob2 = v2o.charAt(i2); i2++; } else ob2 = 0;
+                            if (v2c == 0) {
+                                ob2 = v2o.charAt(i2);
+                                i2++;
+                            }
+                            else
+                                ob2 = 0;
                             v2h = b64.indexOf(v2o.charAt(i2)) * 64 + b64.indexOf(v2o.charAt(i2 + 1)) * 1;
                             if (alls && key == 14) {
                                 for (dpalli = 0; dpalli < 8; dpalli++) {
@@ -786,10 +801,10 @@ function bars_(n, mn) {
                                 (ob2 ? obr[h - 1][ob2] * (14 - d) - sh * (37 - d * 8) + 60 - d * 15
                                 : (sh - 1) * (98 - d * 7)) + "px'>";
                         }
-                    }
+                    } // if (v2t != 2) {
                     if (v2c == 2) break;
-                }
-            } else {
+                } // while (sft < sdd.length) {
+            } else { // if (sdd.charAt(0) == "#") {
                 if (sdd.charAt(0) == "x") {
                     len = parseInt(sdd.substring(1, 4), 16);
                     sft = 4;

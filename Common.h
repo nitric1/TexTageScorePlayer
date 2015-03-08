@@ -19,9 +19,14 @@
 #include <stdexcept>
 #include <vector>
 
+#include <boost/archive/iterators/base64_from_binary.hpp>
+#include <boost/archive/iterators/binary_from_base64.hpp>
+#include <boost/archive/iterators/transform_width.hpp>
+#include <boost/range/any_range.hpp>
 #include <boost/range/iterator_range_core.hpp>
 
 // External library inclusion
 
 #include <SDL/SDL.h>
 #include <SDL2pp/SDL2pp.hh>
+#include <cppformat/format.h>

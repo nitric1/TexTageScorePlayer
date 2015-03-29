@@ -8,9 +8,21 @@ namespace TTSP
         : playMode_(PLAYMODE_INVALID)
     {
         // TODO: temporary
+        /*
+        title_ = "GOLDEN CROSS";
+        artist_ = "dj REMO-CON VS dj TAKA";
+        genre_ = "TECHNO";
+        */
+
+        /*
         title_ = "Close the World feat.a☆ru†LEGGENDARIA";
         artist_ = "天叢雲剣";
         genre_ = "J-CORE";
+        */
+
+        title_ = "JOMANDA";
+        artist_ = "DJ YOSHITAKA";
+        genre_ = "HARD RENAISSANCE";
 
         /*
         std::vector<std::string> dataSP =
@@ -73,6 +85,7 @@ namespace TTSP
         };
         */
 
+        /*
         std::vector<std::string> dataSP =
         {
             "", "", "#r7R1Qdj", "#r6R1OYEAA", "#r7R1Qdj", "#OJDLAOtF/A7Aw", "#OaaDcOssFuO+AAA", "#r6R1OAYAZ", "#OaKDBOscFD5FQ", "#OBBQQODDggOFFww", "#XAAAAA+sa-Qw", "#QMZbF9gCQ", "#OIBIJO4HA9", "#4AA-XAPA", "#bg-XAPA", "#XIAgID9IoOYFAYO4HAA", "#XIAYIFGIg7AA", "#OIhwcOYHAuQwH", "#XAAAAAA9Z-OsA", "#Xfpylz5uU", "#X5dy9MWfr", "#OJyJRO9A7Gq44", "#OIJAAO4vAA", "#X+scu+scu", "#XsaKcsaKc", "#qtJQbZbEbG8kDw3Fc5Fo7F0", "#XWWAAmmAI7FQ", "#3DA", "#r7R1XAodAFFYA", "#R1XAod4F4Yo", "#X9h8R9ZUu", "#O+1sI3Es5E47FE", "#OGOOObb4EI", "#R1XAgcwGgYg", "#XddmmdYI4", "#XAgAgAAsa", "#XI4N4N9I4bb", "#R1XAod4AvYo", "#X9R0c9dUu", "#O+1sZ4E47FQ", "#XAwMwM0IwQDb", "#XI4N4N9I4QbD", "#XI4Ig+ssaQbA", "#QvqbE8qFQ", "", "#XIoYoddAA3AA_FQ", "#XsMsMAAAA", "#OU3AA", "#OKmAA", "#OLu4A", "#-X+Ag", "#O4YCm", "#O4bAw", "#OgAAF3Fo", "#XIAAAAA+i", "#XIAAAmmgI7AA", "#XIAAAddYI7AA", "#XIAAAmmgI7AA", "#XIBAIYoCg7AA", "", "", "", "", "#3DA", "#OAAJBqA9_", "#-OHA", "#XI4N4N9I4bb", "#XIoPoIQwNOYYYH", "#Xi9Z0Z6co", "#OGH+s", "#R1OGeeZ5FQ", "#XAIAI+ssaqtA", "#X8U7L9aLm", "#O+1sj", "#XI4N4N9I4bb", "#R1R3XAoHo9N4+8iDw", "#Xs1jpTvM42Es6FE", "#OLm9e", "#XAAAAdddd", "#OIAATO4AAl", "#XAAAA9Z+i", "#QvabEbG9KFQ", "#XAAAA9d9d", "#r7R1OZogY", "#r6R1OgFAA", "#R1XDLo4gAYA", "#OJDJAOtF/A7Aw", "#OsaDcO+sFu", "#OJJBKOsaFoO//AA4Fo", "#OaKDBOscFD5FQ", "#OBBQQODDggOFFww", "aaaa00010100aaaa"
@@ -82,10 +95,21 @@ namespace TTSP
         {
             "", "", "#XLl+i7z9U", "#X6r0qcz9a", "#XLvy60eMu", "#XIIAAAAddO/AAA-ODA", "#r6R1bb", "#OaaDcOssFuO+AAA", "#XNNWWffYYObkAF", "#ODDggOFFww", "#ob24A4CQ_DA", "#XoAAAffYgO4AFG", "#XAAgAWWQA4Dw", "#OIhoMO4DAo7CQ", "#XIAAIoAddO4HAA", "#OAAKaOAAcs", "#OIDlgOYF3w", "#-XAPA", "#XIAIIAANNO4vAA", "#R1OYaEYbv", "#R1OojFlb3", "#X9izp+ssa", "#XAAAAAArr-OsA", "#R59gFQ", "#QDb9oFQ", "#X9ZU30RU3", "#XAAddAAvA", "#bF", "#X9d8Z0aLm", "#O+1sS", "#r7R1XAodAFFYA", "#XIoIoddA9QbA", "#Xi9Z0Z6co", "#OGH+s", "#XIwMwM0IIOYYYd", "#XAIAI+ssaqtA", "#X8UzL9aLm", "#O+1sj", "#XI4N4N9I4bb", "#XIoPoPPI+OYYbY", "#Xs1jpTvM42Es6FE", "#OLm9e", "#XAAAAdddd", "#OIAAlO4AA3", "#XAAAA9Z+i", "#QvabEbG9qFQ", "#XAAAAsMsM", "#O4YCm", "#O4bAw", "#OgAAF3Fo", "#1AA-XA+A", "#OU3AA", "#OKmAA", "#OLu4A", "#OAABd-X+AA", "", "", "", "", "#XAAIrIrIoQH/", "#XIYI0IiIYQ//", "#XIp4II5oYO4EgA", "#XIIQQYYppXYYggoo77OtG/A", "#QoF7AA", "#9gAA-ODQ", "#XAAAIIIUuOAAvA", "#X7L0R9iLu", "#O+1sI3Es5E47FE", "#XAwIwM0Iwbb", "#XIwMwM0Iwbb", "#XNNmmNYI4ObAYo", "#XAgAgAAsa", "#XI4N4N9I4bb", "#XIoPoPvIobb", "#X9R0c9dUu", "#O+1sZ4E47FQ", "#XAwMwM0IwQDb", "#r7R1R3oAotA", "#XI4Ig+ssaQbA", "#Qvs8KFQ", "", "#9gAA_FQ", "#X0U0UAAAA", "#XLl+irxlU", "#X5r0q07Na", "#XLvi6seUu", "#XIIAAAArr7Aw-ODA", "#OJJACOsaAAO//AA4Fo", "#OsaDcO+sFu", "#XNNWWffYYObktt", "#ODDQQOFFggOHHww", "#9qCQ9qDA-Oww"
         };
+        */
+        std::vector<std::string> dataSP =
+        {
+            "", "", "", "#QBJbt-OgQ", "#OABpp3EI_Aw", "#QBJbb-OgQ", "#OABBo7Dw3EI_Aw", "#XArroyig3_", "#XYhhoddYn", "#XoUUQrGY8", "#XwVVQdeg5", "#OZLJYOs+8o_FQ", "#OILRSOAH11_Aw", "#OCTJYOE+1o-OgQ", "#OIRRSOAl93_Aw", "#XAddYiyg7_", "#XoiigVNQm", "#XQNNIAFQi_DA", "#8oAA1CQ_BI", "#OClMW_", "#OfmVi", "#OxfVU", "#OLMTv", "#OUvAA", "#OKlGA", "#OYEAA", "", "#O0esf", "#Oudms", "#O7uul", "#ORdc3", "#R1OrmDD", "#R1O7lDD6Dw", "#p3P5", "#OAFUA-XkAg", "#3AA4As6BY2B8_DA", "#5AA2Ao4BQ7Bw3CU_DA", "#X8y8O6m4t", "#XYYgddIgb", "#X8y8O6m4t", "#XYYgddIgb", "#X8y8O6m4A", "#OLZZZO4oHo", "#X+i9Zqm4A", "#OMuN3Bc", "#Obkt26AA", "", "#OKcu4", "#OAAAc_Bg", "#Ou4AA", "#XAiAApAAA-Okw", "#X4dDwVE9M", "#XwNB4mB+j", "#X4mBoUC0I", "#XoUCoeDoQ", "#X4eCofD0V", "#X4WC4eB+j", "#XwUBweEwd", "#X4VDwnB4g", "#r2QF9b/_", "#r2R7bt", "#r7R1bt", "#r7R1bt", "#ORLJqOEuAA", "#r4OaXWAbo", "#OTdJoOoHAA_FQ", "#XAMCoWAAA_Eg", "#OZThZOonGH", "#Oqiqm", "#OadUpO43GD", "#OnWhu", "#r5R1bb", "#r5R1bb", "#R1OGeGY_FQ", "#qJI-Qc", "", "#XwVD4UD0W", "#X4dBwVC9Z", "#XgVBgUDyg", "#X4VDwnCwY", "#OKlAA", "#OTmHA", "#OICAH4Fo", "#XQABgAGQIOAAAl-oSA", "#OARZKOAmAA_", "#OycVEOEvHA", "#ONqb2OwGAA", "#OkI2Ibv", "#XoUD4mD0W", "#X4MBoUBsR", "#XwUDwmCwc", "#Q4CbG-qw", "#ONYQIQ1A-qc", "#OBd5eOGoG4", "#OOYQIQ+A-qc", "#OBd5cOHoF4", "#XylDIylDIqHG", "#XQgoQLmV44CQ", "#XoUBwWDog7FQ", "#XwVBoWCpg7CQ", "01"
+        };
+
+        std::vector<std::string> dataDP =
+        {
+            "", "", "", "#XwiigNNQ7", "#XwMMwiigf", "#XwiigNMQv", "#XwddQnfgf", "#R1Olutw_FQ", "#Qt29ECQ-qs", "#O8NMOQEm", "#OPNJJOoo99", "#XA0UwLrIi_", "#Xgd9YiKgv", "#Xo0UwLrI8", "#X4d9YiKgv", "#R1O1ekdbu", "#OHOMPQD7b3_", "#OFOMOQDjbu_", "#4BI-OkA", "#OUvAA", "#OKlGA", "#OYEAA", "", "#Oz3mf", "#OmdX1", "#Ohele", "#OXVMK", "#r7OAdAA_", "#r7ORcGA", "#r6OQDAA", "#r6", "#Orml3", "#Omlf1", "#Ojmdm", "#OdQAf_CQDY", "#6DA5Ds3EY7E8_", "#QAj7Dk6EE2FA_", "#XAowvvYwt_", "#X8y8O6m4b", "#XoowvvYwt", "#X8y8O6m4b", "#OLZZZO4oHo", "#X8y8O6m4A", "#ON3MuBj", "#X+i9Zqm4A", "01", "#OSbkt", "#1FQ", "#OTl3A", "#_DA", "#XoAD4ACyo-oSA", "#r6QBJbb_", "#r6R1bb", "#r7R1bb", "#r7R1bb", "#ORUJiOF3AA", "#OZKdBOEuHA", "#OiUSiOwHAA", "#OJYtgb/", "#XwdCwMB0W", "#X4eE4WD9Z", "#XwdCgMC0I", "#X4mE4fDwg", "#XoUCwMC9e", "#XgeE4eD+j", "#XwVC4fE4M", "#QwDbH-qw", "#b2-OlQ", "#OBbpdOF4D4", "#b2-OlQ", "#OBbhjOE4D4", "#XUuD4UuB4", "#XAgwgKlD4", "#XwWD4nCow", "#X4NC4eCqg", "01", "#OGjAA_", "#O9iDA", "#OoEAA", "", "#XwUDwND8V", "#X4mD4MC0a", "#XoMC4vE4A", "#XAzAAfAAA-Okw", "#XoAA4eC9e7AA_Bg", "#X4VCwNC0Z", "#XoUBoVD8Q", "#XwdCwnDwg", "#r4R1bb", "#r5R1bb", "#R1OGeGY_FQ", "#XAMCofAAA_Eg", "#ORTZjOonEF", "#Oqiql", "#ORTSpOzuvE", "#OnViu", "#OMYw45AA-qc", "#OBd5ZOGoEF", "#O8JRYOAeEo_FQ", "#qn36Aw-Qc", "28"
+        };
 
         std::vector<std::vector<DataCN>> dataCNSP(dataSP.size());
         std::vector<std::vector<DataCN>> dataCNDP(dataDP.size());
 
+        /*
         dataCNDP[55] = {{37, 0, 126, DataCN::HAS_BOTH_NOTE}};
         dataCNDP[56] = {{14, 0, 126, DataCN::HAS_BOTH_NOTE}};
         dataCNDP[57] = {{26, 0, 62, DataCN::HAS_BOTH_NOTE}, {47, 64, 62, DataCN::HAS_BOTH_NOTE}};
@@ -95,15 +119,20 @@ namespace TTSP
         dataCNSP[60] = {{14, 0, 62, DataCN::HAS_BOTH_NOTE}, {37, 64, 62, DataCN::HAS_BOTH_NOTE}};
         dataCNSP[61] = {{16, 0, 62, DataCN::HAS_BOTH_NOTE}, {47, 64, 62, DataCN::HAS_BOTH_NOTE}};
         dataCNSP[62] = {{26, 0, 62, DataCN::HAS_BOTH_NOTE}, {17, 64, 62, DataCN::HAS_BOTH_NOTE}};
-
-        /*std::vector<uint16_t> measureSizes(dataSP.size());
-        measureSizes.back() = 24;
-
-        std::vector<std::vector<std::string>> bpms = {{}, {"1500"}};*/
+        */
 
         std::vector<uint16_t> measureSizes(dataSP.size());
+        measureSizes.back() = 24;
 
-        std::vector<std::vector<std::string>> bpms = {{}, {"1880"}};
+        //std::vector<std::vector<std::string>> bpms = {{}, {"1500"}};
+
+        //std::vector<uint16_t> measureSizes(dataSP.size());
+
+        std::vector<std::vector<std::string>> bpms(dataSP.size());
+        bpms[1] = {"1950"}; bpms[35] = {"1600"}; bpms[36] = {"1400", "12064"}; bpms[37] = {" 900"};
+        bpms[38] = {" 9516", "10024", "11032", "12064"}; bpms[39] = {"1300", "14064"};
+        bpms[40] = {"1500", "17064"}; bpms[41] = {"1800", "19016", "21096"}; bpms[42] = {"22064", "24096"};
+        bpms[43] = {"2500"}; bpms[44] = {"2700"}; bpms[45] = {"3000"}; bpms[50] = {"1950"};
 
         // load(std::move(dataSP), {}, {}, {}, std::move(measureSizes), std::move(bpms), PLAYMODE_SP);
 
@@ -117,30 +146,14 @@ namespace TTSP
         return playMode_;
     }
 
-    uint16_t Score::firstBpm() const
+    boost::iterator_range<Score::BPMs::const_iterator> Score::bpms() const
     {
-        if(bpms_.empty())
-        {
-            return 0;
-        }
-
-        return bpms_.begin()->second;
+        return boost::iterator_range<Score::BPMs::const_iterator>(bpms_.begin(), bpms_.end());
     }
 
-    std::vector<std::pair<uint32_t, uint32_t>> Score::bpms(const uint32_t positionBegin, const uint32_t positionEnd) const
+    boost::iterator_range<Score::BPMs::const_iterator> Score::bpms(const uint32_t positionEnd) const
     {
-        auto begin = bpms_.lower_bound(positionBegin);
-        if(begin != bpms_.begin())
-        {
-            -- begin;
-        }
-
-        auto end = bpms_.lower_bound(positionEnd);
-
-        std::vector<std::pair<uint32_t, uint32_t>> bpmsInRange;
-        std::copy(begin, end, std::back_inserter(bpmsInRange));
-
-        return bpmsInRange;
+        return boost::iterator_range<Score::BPMs::const_iterator>(bpms_.begin(), bpms_.lower_bound(positionEnd));
     }
 
     boost::iterator_range<Score::Objects::value_type::const_iterator> Score::objects(const size_t objectLaneIdx, const uint32_t positionBegin, const uint32_t positionEnd) const
@@ -459,6 +472,8 @@ namespace TTSP
         void parseCNData(const std::vector<DataCN> &data, const size_t /*measureNum*/, const uint32_t /*measureSize*/, const uint32_t measurePos,
             const size_t *keyToObjectLaneIdxMap, Score::Objects &objects)
         {
+            static const uint32_t BaseMeasureSizeCN = 128;
+
             if(data.empty())
             {
                 return;
@@ -614,7 +629,6 @@ namespace TTSP
         uint32_t measurePos = 0;
         for(size_t measureNum = 1; measureNum < measures; ++ measureNum)
         {
-            static const uint32_t BaseMeasureSizeCN = 128;
             static const uint32_t BaseMeasureSizeBPM = 128;
 
             const uint32_t measureSize = measureSizes[measureNum];
@@ -651,10 +665,15 @@ namespace TTSP
                 }
 
                 const uint32_t posInMeasure = std::stoul(bpm.substr(3));
-                bpms_.emplace(posInMeasure * BaseMeasureSize / BaseMeasureSizeBPM, bpmNum);
+                bpms_.emplace(measurePos + posInMeasure * BaseMeasureSize / BaseMeasureSizeBPM, bpmNum);
             }
 
             measurePos += measureSize;
+        }
+
+        if(bpms_.find(0) == bpms_.end())
+        {
+            throw(std::invalid_argument("initial bpm is not set"));
         }
 
         playMode_ = playMode;
@@ -940,18 +959,36 @@ namespace TTSP
 
     namespace
     {
+        static const int64_t NanosecondsInMinute = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count();
     }
 
     void ScorePlayback::position(const uint32_t position)
     {
-        // TODO: variable BPM
+        if(!score_)
+        {
+            return;
+        }
 
-        double beats = position * 4.0 / BaseMeasureSize;
+        int64_t timePositionNano = 0;
+        auto bpms = score_->bpms(position);
+        for(auto it = bpms.begin(); it != bpms.end();)
+        {
+            auto nextIt = it;
+            ++ nextIt;
+            if(nextIt == bpms.end()) // last bpm; it->first to position
+            {
+                timePositionNano += (position - it->first) * 4 * NanosecondsInMinute / it->second / BaseMeasureSize;
+                break;
+            }
+            else
+            {
+                timePositionNano += (nextIt->first - it->first) * 4 * NanosecondsInMinute / it->second / BaseMeasureSize;
+            }
 
-        timePosition_ = std::chrono::nanoseconds(static_cast<int64_t>(
-            beats
-            * std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count()
-            / score_->firstBpm()));
+            it = nextIt;
+        }
+
+        timePosition_ = std::chrono::nanoseconds(timePositionNano);
     }
 
     uint32_t ScorePlayback::position() const
@@ -961,15 +998,42 @@ namespace TTSP
             return 0;
         }
 
-        // TODO: variable BPM
-
         // BaseMeasureSize: 4 beats
         // 120 BPM: 120 Beats / 1 minutes
 
-        double timePositionMinutes = static_cast<double>(timePosition_.count())
-            / std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count();
+        int64_t timePositionAccumulated = 0;
+        uint32_t position = 0;
+        auto bpms = score_->bpms();
+        for(auto it = bpms.begin(); it != bpms.end() && timePositionAccumulated < timePosition_.count();)
+        {
+            auto nextIt = it;
+            ++ nextIt;
+            if(nextIt == bpms.end()) // last bpm; it->first to position
+            {
+                position += static_cast<uint32_t>((it->second * BaseMeasureSize / 4) * (timePosition_.count() - timePositionAccumulated) / NanosecondsInMinute);
+                break;
+            }
+            else
+            {
+                const int64_t nanosecondsInBPMSection = (nextIt->first - it->first) * 4 * NanosecondsInMinute / it->second / BaseMeasureSize;
 
-        return static_cast<uint32_t>((score_->firstBpm() * BaseMeasureSize / 4) * timePositionMinutes);
+                if(timePositionAccumulated + nanosecondsInBPMSection < timePosition_.count())
+                {
+                    position += nextIt->first - it->first;
+                }
+                else
+                {
+                    position += static_cast<uint32_t>((it->second * BaseMeasureSize / 4) * (timePosition_.count() - timePositionAccumulated) / NanosecondsInMinute);
+                    break;
+                }
+
+                timePositionAccumulated += nanosecondsInBPMSection;
+            }
+
+            it = nextIt;
+        }
+
+        return position;
     }
 
     void ScorePlayback::progress(const std::chrono::nanoseconds interval)

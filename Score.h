@@ -42,7 +42,6 @@ namespace TTSP
     namespace
     {
         const uint32_t BaseMeasureSize = 384; // at 4/4
-        const uint32_t BaseMeasureSizeCN = 128; // at 4/4
 
         const uint16_t BaseHiSpeed = 100; // 1 4/4 measure at once
         const uint16_t DefaultHiSpeed = 250;
@@ -67,6 +66,7 @@ namespace TTSP
     {
     public:
         typedef std::array<std::map<uint32_t, Object>, ObjectLaneCount> Objects;
+        typedef std::map<uint32_t, uint16_t> BPMs;
 
     private:
         std::string title_;
@@ -75,15 +75,15 @@ namespace TTSP
 
         PlayMode playMode_;
         Objects objects_;
-        std::map<uint32_t, uint16_t> bpms_;
+        BPMs bpms_;
 
     public:
         explicit Score(/* ... */);
 
     public:
         PlayMode playMode() const;
-        uint16_t firstBpm() const; // TODO: temporary
-        std::vector<std::pair<uint32_t, uint32_t>> bpms(uint32_t positionBegin, uint32_t positionEnd) const;
+        boost::iterator_range<BPMs::const_iterator> bpms() const;
+        boost::iterator_range<BPMs::const_iterator> bpms(uint32_t positionEnd) const;
         boost::iterator_range<Objects::value_type::const_iterator> objects(size_t objectLaneIdx, uint32_t positionBegin, uint32_t positionEnd) const;
 
     private:

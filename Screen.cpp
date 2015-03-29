@@ -227,55 +227,115 @@ namespace TTSP
 
         const int bottomY = static_cast<int>(y) + height - 1;
 
-        auto calcObjectY = [height, positionGap, bottomY](const uint32_t screenObjectPosition)
+        auto calcObjectY = [height, positionGap, bottomY](const int32_t screenObjectPosition)
         {
-            return bottomY - (screenObjectPosition * height / positionGap);
+            return bottomY - (screenObjectPosition * height / static_cast<int32_t>(positionGap));
         };
 
-        // measure line
-        for(const auto &objectPair : score->objects(ObjectLaneIdxMeasureLine, position, position + positionGap))
         {
-            const uint32_t screenObjectPosition = objectPair.first - position;
-            const int objectY = calcObjectY(screenObjectPosition);
-
-            renderer.SetDrawColor(LIST_RGBA(LaneOuterLineColor));
-            renderer.DrawLine(
-                static_cast<int>(x), objectY,
-                static_cast<int>(x) + width, objectY);
-        }
-
-        // notes
-        for(size_t i = 0; i < KeyCount; ++ i)
-        {
-            const size_t laneIdx = KeyObjectIdxToLaneIdxMap[i];
-            if(lanePos[laneIdx] < 0)
+            class Clipper
             {
-                break;
+                SDL2pp::Renderer &renderer_;
+                Clipper &operator =(const Clipper &) = delete;
+                Clipper &operator =(Clipper &&) = delete;
+            public:
+                Clipper(SDL2pp::Renderer &renderer, const SDL2pp::Rect &rect)
+                    : renderer_(renderer)
+                {
+                    renderer.SetClipRect(rect);
+                }
+                ~Clipper()
+                {
+                    renderer_.SetClipRect();
+                }
+            } clipper(renderer, SDL2pp::Rect(SDL2pp::Point(x, y), SDL2pp::Point(width, height)));
+
+            // measure line
+            for(const auto &objectPair : score->objects(ObjectLaneIdxMeasureLine, position, position + positionGap))
+            {
+                const uint32_t screenObjectPosition = objectPair.first - position;
+                const int objectY = calcObjectY(screenObjectPosition);
+
+                renderer.SetDrawColor(LIST_RGBA(LaneOuterLineColor));
+                renderer.DrawLine(
+                    static_cast<int>(x), objectY,
+                    static_cast<int>(x) + width, objectY);
             }
 
-            for(const auto &objectPair : score->objects(ObjectLaneIdxKeyBegin + i, position, position + positionGap))
+            // notes
+            auto drawNote = [&calcObjectY, &renderer, y](
+                const SDL_Color noteColor, const int noteX, const int noteWidth,
+                const int32_t screenNotePosition)
             {
-                if(objectPair.second.type_ != OBJECTTYPE_NOTE)
+                const int noteY = calcObjectY(screenNotePosition) - NoteHeight + 1;
+                renderer.SetDrawColor(LIST_RGBA(noteColor));
+                renderer.FillRect(SDL2pp::Rect(SDL2pp::Point(noteX, noteY), SDL2pp::Point(noteWidth, NoteHeight)));
+            };
+
+            auto drawCN = [&calcObjectY, &renderer, y, height, position, positionGap, bottomY](
+                const LaneType laneType, const int noteX, const int noteWidth,
+                const uint32_t cnStartPosition, const uint32_t cnEndPosition,
+                bool noteCNStartExistsInScreen)
+            {
+                int32_t screenCNStartPosition = static_cast<int32_t>(cnStartPosition) - position;
+                if(!noteCNStartExistsInScreen)
                 {
-                    continue;
+                    screenCNStartPosition = 0;
                 }
 
-                const uint32_t notePosition = objectPair.first;
-                const uint32_t noteCNEndPosition = notePosition; // TODO: CN support
-                if(notePosition < position && noteCNEndPosition < position)
+                int32_t screenCNEndPosition = static_cast<int32_t>(cnEndPosition) - position;
+                if(screenCNEndPosition < 0)
                 {
-                    continue; // really?
+                    return;
                 }
-                else if(notePosition >= position + positionGap && noteCNEndPosition >= position + positionGap)
+
+                SDL_Color noteCNColor;
+                SDL_Color noteCNAltColor;
+                uint16_t noteCNMargin;
+                switch(laneType)
                 {
-                    continue;
+                case LANETYPE_SCRATCH:
+                    noteCNColor = NoteScratchCNColor;
+                    noteCNAltColor = NoteScratchCNAltColor;
+                    noteCNMargin = NoteScratchCNMargin;
+                    break;
+
+                case LANETYPE_WHITE:
+                    noteCNColor = NoteWhiteCNColor;
+                    noteCNAltColor = NoteWhiteCNAltColor;
+                    noteCNMargin = NoteWhiteCNMargin;
+                    break;
+
+                case LANETYPE_BLACK:
+                    noteCNColor = NoteBlackCNColor;
+                    noteCNAltColor = NoteBlackCNAltColor;
+                    noteCNMargin = NoteBlackCNMargin;
+                    break;
+
+                default:
+                    return; // TODO: error
+                }
+
+                const int barBottomY = calcObjectY(screenCNStartPosition) - (noteCNStartExistsInScreen ? NoteHeight : 0) + 1;
+                const int barTopY = calcObjectY(screenCNEndPosition);
+
+                renderer.SetDrawColor(LIST_RGBA(noteCNColor));
+                renderer.FillRect(SDL2pp::Rect(SDL2pp::Point(noteX + noteCNMargin, barTopY), SDL2pp::Point(noteWidth - 2 * noteCNMargin, barBottomY - barTopY)));
+
+                renderer.SetDrawColor(LIST_RGBA(noteCNAltColor));
+                renderer.DrawLine(SDL2pp::Point(noteX + noteCNMargin + 1, barTopY), SDL2pp::Point(noteX + noteCNMargin + 1, barBottomY - 1));
+                renderer.DrawLine(SDL2pp::Point(noteX + noteWidth - 2 * noteCNMargin - 1, barTopY), SDL2pp::Point(noteX + noteWidth - 2 * noteCNMargin - 1, barBottomY - 1));
+            };
+
+            for(size_t i = 0; i < KeyCount; ++ i)
+            {
+                const size_t laneIdx = KeyObjectIdxToLaneIdxMap[i];
+                if(lanePos[laneIdx] < 0)
+                {
+                    break;
                 }
 
                 const LaneType laneType = LaneTypes[laneIdx];
-
-                const uint32_t screenNotePosition = notePosition - position;
-                const uint32_t screenNoteCNEndPosition = noteCNEndPosition - position;
-
                 const int noteX = static_cast<int>(x) + lanePos[laneIdx] + 1;
                 const int noteWidth = LaneWidths[laneIdx];
 
@@ -298,42 +358,58 @@ namespace TTSP
                     return false; // TODO: error
                 }
 
-                if(position <= notePosition && notePosition < position + positionGap) // start note
+                boost::optional<uint32_t> noteCNStartPosition;
+
+                for(const auto &objectPair : score->objects(ObjectLaneIdxKeyBegin + i, position, position + positionGap))
                 {
-                    const int noteY = calcObjectY(screenNotePosition) - NoteHeight + 1;
-                    renderer.SetDrawColor(LIST_RGBA(noteColor));
-                    renderer.FillRect(SDL2pp::Rect(SDL2pp::Point(noteX, noteY), SDL2pp::Point(noteWidth, NoteHeight)));
+                    if(objectPair.second.type_ != OBJECTTYPE_NOTE &&
+                        objectPair.second.type_ != OBJECTTYPE_CN_START &&
+                        objectPair.second.type_ != OBJECTTYPE_CN_END)
+                    {
+                        continue;
+                    }
+
+                    const uint32_t notePosition = objectPair.first;
+                    const int32_t screenNotePosition = static_cast<int32_t>(notePosition) - position;
+
+                    if(objectPair.second.type_ == OBJECTTYPE_CN_START)
+                    {
+                        noteCNStartPosition = notePosition;
+                    }
+
+                    // To draw bottom-blinded note
+                    /*if(notePosition < position)
+                    {
+                        continue;
+                    }
+                    else */if(notePosition >= position + positionGap)
+                    {
+                        continue;
+                    }
+
+                    if(objectPair.second.type_ == OBJECTTYPE_CN_START)
+                    {
+                        noteCNStartPosition = notePosition;
+                    }
+                    else if(objectPair.second.type_ == OBJECTTYPE_CN_END)
+                    {
+                        if(noteCNStartPosition)
+                        {
+                            drawCN(laneType, noteX, noteWidth, *noteCNStartPosition, notePosition, true);
+                            noteCNStartPosition = boost::none;
+                        }
+                        else
+                        {
+                            drawCN(laneType, noteX, noteWidth, 0, notePosition, false);
+                        }
+                    }
+
+                    drawNote(noteColor, noteX, noteWidth, screenNotePosition);
                 }
 
-                if(notePosition < noteCNEndPosition) // draw CN bar
+                if(noteCNStartPosition)
                 {
-                    uint16_t noteCNMargin;
-                    switch(laneType)
-                    {
-                    case LANETYPE_SCRATCH:
-                        noteCNMargin = NoteScratchCNMargin;
-                        break;
-
-                    case LANETYPE_WHITE:
-                        noteCNMargin = NoteWhiteCNMargin;
-                        break;
-
-                    case LANETYPE_BLACK:
-                        noteCNMargin = NoteBlackCNMargin;
-                        break;
-
-                    default:
-                        return false; // TODO: error
-                    }
-
-                    // TODO: draw CN bar
-
-                    if(position <= noteCNEndPosition && noteCNEndPosition < position + positionGap) // end note
-                    {
-                        const int noteY = calcObjectY(screenNotePosition) - NoteHeight + 1;
-                        renderer.SetDrawColor(LIST_RGBA(noteColor));
-                        renderer.FillRect(SDL2pp::Rect(SDL2pp::Point(noteX, noteY), SDL2pp::Point(noteWidth, NoteHeight)));
-                    }
+                    drawCN(laneType, noteX, noteWidth, *noteCNStartPosition, position + positionGap, true);
                 }
             }
         }

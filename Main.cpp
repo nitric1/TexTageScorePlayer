@@ -79,14 +79,21 @@ namespace TTSP
                         case SDLK_RIGHT:
                             {
                                 const uint32_t position = scorePlayback.position();
-                                scorePlayback.position(position + ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed()));
+                                if(e.key.keysym.mod & KMOD_SHIFT)
+                                {
+                                    scorePlayback.position(position + 24);
+                                }
+                                else
+                                {
+                                    scorePlayback.position(position + ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed()));
+                                }
                             }
                             break;
 
                         case SDLK_LEFT:
                             {
                                 const uint32_t position = scorePlayback.position();
-                                const uint32_t gap = ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed());
+                                const uint32_t gap = (e.key.keysym.mod & KMOD_SHIFT ? 24 : ScorePlayback::positionGapAtOnce(scorePlayback.hiSpeed()));
                                 if(position >= gap)
                                 {
                                     scorePlayback.position(position - gap);

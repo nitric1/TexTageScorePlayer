@@ -4,15 +4,15 @@ namespace TTSP
 {
     struct DataCN
     {
-        uint8_t sideKeyIdx_; // 0=Scratch, 1=Key1, 2=Key2, ..., 7=Key7
+        uint32_t sideKeyIdxs_; // Multi digits (in 10-based), 0=Scratch, 1=Key1, 2=Key2, ..., 7=Key7
         uint32_t position_;
         uint32_t length_;
         enum Type
         {
             CONTINUATION_ONLY = 0,
-            HAVE_START_NOTE,
-            HAVE_END_NOTE,
-            HAVE_BOTH_NOTE
+            HAS_START_NOTE,
+            HAS_END_NOTE,
+            HAS_BOTH_NOTE
         } type_;
     };
 
@@ -42,12 +42,17 @@ namespace TTSP
     namespace
     {
         const uint32_t BaseMeasureSize = 384; // at 4/4
+        const uint32_t BaseMeasureSizeCN = 128; // at 4/4
 
         const uint16_t BaseHiSpeed = 100; // 1 4/4 measure at once
         const uint16_t DefaultHiSpeed = 250;
 
         const size_t ObjectLaneIdxKeyBegin = 0;
         const size_t ObjectLaneIdxMeasureLine = 16;
+
+        const size_t SideKeyCount = 8;
+        const size_t SideKeyToObjectLaneIdxMap1P[SideKeyCount] = {0, 1, 2, 3, 4, 5, 6, 7};
+        const size_t SideKeyToObjectLaneIdxMap2P[SideKeyCount] = {15, 8, 9, 10, 11, 12, 13, 14};
 
         const size_t KeyCount = 16;
         const size_t ObjectLaneCount = KeyCount + 1; // Key + measure line

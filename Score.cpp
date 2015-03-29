@@ -8,10 +8,11 @@ namespace TTSP
         : playMode_(PLAYMODE_INVALID)
     {
         // TODO: temporary
-        title_ = "GOLDEN CROSS";
-        artist_ = "dj REMO-CON VS dj TAKA";
-        genre_ = "TECHNO";
+        title_ = "Close the World feat.a☆ru†LEGGENDARIA";
+        artist_ = "天叢雲剣";
+        genre_ = "J-CORE";
 
+        /*
         std::vector<std::string> dataSP =
         {
             "", "", "01", "#4Dw", "#R1Oevev_",
@@ -30,13 +31,85 @@ namespace TTSP
             "#r2r4r7R1XrDgLrDgLb2", "#P6r4r7R1XATgVCagVoFAFA-OgQ", "#P6r4r7R1XATgVCagToFAFF_FQ", "#P6r2r4r7R1obDbDoFFFFbk-qU", "#r1r6Xiiaqaid7otktEoHHHFbE-q4",
             "#r7R1XTlE1TlE1", "#r7R1XTlF0TlE1_FQ", "#P1XcuG+cuG+_", "#P1XjzD7jzF+ovuvA", "01"
         };
+        */
 
-        std::vector<uint16_t> measureSizes(dataSP.size());
+        /*
+        std::vector<std::string> dataSP =
+        {
+            "", "", "01", "#5Dw", "#R1bb",
+            "#R1bb", "#R1bb", "#R1OAYAZ", "#OAIILbb_", "#R1OAbAb5Cg2Cw",
+            "#R1OAYAd3Fo", "#XAA+iLUF8", "#XIdI0IdI0", "#XIdI0IdI0", "#XIVIzIVIz",
+            "#XIVILIVILqGG", "#XAVI8IVI8_", "#XIVI8IVI8", "#XIeI8IeIM7FQ", "#XAeIMUdE97CQ",
+            "#XIdI0IdI0", "#XIdI0IdI0", "#XIVIzIVIz", "#XIVILIVILqGG", "#XAVI8IVI8_",
+            "#XIVI8IVI8", "#XIeI8IeI8", "#XLUd8LRd8", "#XIdI0IdI0", "#XIdI0IdI0",
+            "#XIVIzIVIz", "#XIVILIVILqGG", "#XCmF7KmF7_", "#XKmF8KmAA-OAw", "#XMyN7MyN7",
+            "#XChqxipjqXAHAA4444_", "#OIACA", "#OIACA", "#OIACA", "#OAAQC2EI",
+            "#OIFEA_Eg", "#XIAQDCIAA", "#OYFEA", "#XIAQDgEAg", "#R1XYAomCYwo7AA",
+            "#R1XYAomCYgobG", "#R1XYAomCYwo7AA", "#R1XYHgIsVAIO4DADqHF", "#XIAIvOgAYQjA6AA_Eg", "#XIAIuKgAYQjA_Eg",
+            "#XIAIvI0YAQjF6AA8KFA8KFg", "#OAAQC2EI_", "#bC2FA2Fg", "#OVADA5B4", "#XAdI0IdI0_",
+            "#XIdI0IdI0", "#XIVIzIVIz", "#XIVILIVIz6CQ", "#XAVI8IVI8_", "#XIVI8IRAM5EI7FQ",
+            "#XIeI8AOI83Dw_DA", "#XIV4YFV4Y", "#XAVIYFVIAb/-OgQ", "#XAVIYFVIYb/", "#XAVIYFVIAb/_FQ",
+            "#XFUIUOUIfb/", "#XAVIYFVIAb/-OgQ", "#XAVIYFVIfb/", "#XFUIAFUIvb/_CQ", "#XFHEXFDwn-qo",
+            "#XKmF7KmF7", "#XOUD9OUD9", "#XE0F5imD9_", "#XMzB7imD6", "01"
+        };
+
+        std::vector<std::string> dataDP =
+        {
+            "", "", "", "", "#OGGmG_",
+            "#r6Bk", "#r6Bk", "#OmGmA", "#OGGmA", "#OmDOA5Cg2Cw",
+            "#OmGmD1Fo", "#X+iAAdmd61C0", "#OGeme_", "#Omeme", "#Omeme",
+            "#Omeme", "#Omeme", "#Omeme", "#Omegb", "#XLUd8LUF7",
+            "#XCm7sKm7s_", "#XVL8yZd8W", "#XLU90LU90", "#XKm9eKm9z", "#XLm6uLm6u",
+            "#XLU7uLU7u", "#XKc90Kc90", "#XLvEyLvEy", "#XCmF7KmF7_", "#XKmF7KmF7",
+            "#XKcF7KcF7", "#XKcF7KcF7", "#XLUd8LUAA-OAw", "#XLUd8LUd7", "#XU9U9e8e8",
+            "#Xd8V8e8V8", "#OADAw_", "#OADAw", "#OADAw", "#OoFAA5BI",
+            "#XIAQDCIAA", "#OYFEA_Eg", "#XIAQDCIAA_Eg", "#X4HA4CIAQ", "#XLUvUdLmv",
+            "#XLUvmULmv", "#XUvLmvmUd", "#XmLvmvUdL", "#XUvmdmLmv", "#XmdUdmLvm",
+            "#XUvmUvmLv", "#OoFAA5BI", "#bg", "#_AwB4", "#XKmd8Kmd8",
+            "#XKmd8Kmd8", "#XLUd+LUd+", "#XLUd+LUdA_FQ", "#XZmr6Zmr6", "#XZmr6Zmr6",
+            "#Xjq05jq0A_FQ", "#XEdm8LmlA-OgQ", "#r6QjL4DA", "#OOeOYBk_FQ", "#r6QLLBk",
+            "#OOZmYOgGAA_FQ", "#r6QjL4DA", "#OOeOYBk_FQ", "#OOeOYBk_FQ", "#XKmdFKmd9_CQ",
+            "#r6R1", "#OOOOI_FQ", "#OKLMN", "#XDLLLLLAA-Ogw"
+        };
+        */
+
+        std::vector<std::string> dataSP =
+        {
+            "", "", "#r7R1Qdj", "#r6R1OYEAA", "#r7R1Qdj", "#OJDLAOtF/A7Aw", "#OaaDcOssFuO+AAA", "#r6R1OAYAZ", "#OaKDBOscFD5FQ", "#OBBQQODDggOFFww", "#XAAAAA+sa-Qw", "#QMZbF9gCQ", "#OIBIJO4HA9", "#4AA-XAPA", "#bg-XAPA", "#XIAgID9IoOYFAYO4HAA", "#XIAYIFGIg7AA", "#OIhwcOYHAuQwH", "#XAAAAAA9Z-OsA", "#Xfpylz5uU", "#X5dy9MWfr", "#OJyJRO9A7Gq44", "#OIJAAO4vAA", "#X+scu+scu", "#XsaKcsaKc", "#qtJQbZbEbG8kDw3Fc5Fo7F0", "#XWWAAmmAI7FQ", "#3DA", "#r7R1XAodAFFYA", "#R1XAod4F4Yo", "#X9h8R9ZUu", "#O+1sI3Es5E47FE", "#OGOOObb4EI", "#R1XAgcwGgYg", "#XddmmdYI4", "#XAgAgAAsa", "#XI4N4N9I4bb", "#R1XAod4AvYo", "#X9R0c9dUu", "#O+1sZ4E47FQ", "#XAwMwM0IwQDb", "#XI4N4N9I4QbD", "#XI4Ig+ssaQbA", "#QvqbE8qFQ", "", "#XIoYoddAA3AA_FQ", "#XsMsMAAAA", "#OU3AA", "#OKmAA", "#OLu4A", "#-X+Ag", "#O4YCm", "#O4bAw", "#OgAAF3Fo", "#XIAAAAA+i", "#XIAAAmmgI7AA", "#XIAAAddYI7AA", "#XIAAAmmgI7AA", "#XIBAIYoCg7AA", "", "", "", "", "#3DA", "#OAAJBqA9_", "#-OHA", "#XI4N4N9I4bb", "#XIoPoIQwNOYYYH", "#Xi9Z0Z6co", "#OGH+s", "#R1OGeeZ5FQ", "#XAIAI+ssaqtA", "#X8U7L9aLm", "#O+1sj", "#XI4N4N9I4bb", "#R1R3XAoHo9N4+8iDw", "#Xs1jpTvM42Es6FE", "#OLm9e", "#XAAAAdddd", "#OIAATO4AAl", "#XAAAA9Z+i", "#QvabEbG9KFQ", "#XAAAA9d9d", "#r7R1OZogY", "#r6R1OgFAA", "#R1XDLo4gAYA", "#OJDJAOtF/A7Aw", "#OsaDcO+sFu", "#OJJBKOsaFoO//AA4Fo", "#OaKDBOscFD5FQ", "#OBBQQODDggOFFww", "aaaa00010100aaaa"
+        };
+
+        std::vector<std::string> dataDP =
+        {
+            "", "", "#XLl+i7z9U", "#X6r0qcz9a", "#XLvy60eMu", "#XIIAAAAddO/AAA-ODA", "#r6R1bb", "#OaaDcOssFuO+AAA", "#XNNWWffYYObkAF", "#ODDggOFFww", "#ob24A4CQ_DA", "#XoAAAffYgO4AFG", "#XAAgAWWQA4Dw", "#OIhoMO4DAo7CQ", "#XIAAIoAddO4HAA", "#OAAKaOAAcs", "#OIDlgOYF3w", "#-XAPA", "#XIAIIAANNO4vAA", "#R1OYaEYbv", "#R1OojFlb3", "#X9izp+ssa", "#XAAAAAArr-OsA", "#R59gFQ", "#QDb9oFQ", "#X9ZU30RU3", "#XAAddAAvA", "#bF", "#X9d8Z0aLm", "#O+1sS", "#r7R1XAodAFFYA", "#XIoIoddA9QbA", "#Xi9Z0Z6co", "#OGH+s", "#XIwMwM0IIOYYYd", "#XAIAI+ssaqtA", "#X8UzL9aLm", "#O+1sj", "#XI4N4N9I4bb", "#XIoPoPPI+OYYbY", "#Xs1jpTvM42Es6FE", "#OLm9e", "#XAAAAdddd", "#OIAAlO4AA3", "#XAAAA9Z+i", "#QvabEbG9qFQ", "#XAAAAsMsM", "#O4YCm", "#O4bAw", "#OgAAF3Fo", "#1AA-XA+A", "#OU3AA", "#OKmAA", "#OLu4A", "#OAABd-X+AA", "", "", "", "", "#XAAIrIrIoQH/", "#XIYI0IiIYQ//", "#XIp4II5oYO4EgA", "#XIIQQYYppXYYggoo77OtG/A", "#QoF7AA", "#9gAA-ODQ", "#XAAAIIIUuOAAvA", "#X7L0R9iLu", "#O+1sI3Es5E47FE", "#XAwIwM0Iwbb", "#XIwMwM0Iwbb", "#XNNmmNYI4ObAYo", "#XAgAgAAsa", "#XI4N4N9I4bb", "#XIoPoPvIobb", "#X9R0c9dUu", "#O+1sZ4E47FQ", "#XAwMwM0IwQDb", "#r7R1R3oAotA", "#XI4Ig+ssaQbA", "#Qvs8KFQ", "", "#9gAA_FQ", "#X0U0UAAAA", "#XLl+irxlU", "#X5r0q07Na", "#XLvi6seUu", "#XIIAAAArr7Aw-ODA", "#OJJACOsaAAO//AA4Fo", "#OsaDcO+sFu", "#XNNWWffYYObktt", "#ODDQQOFFggOHHww", "#9qCQ9qDA-Oww"
+        };
+
+        std::vector<std::vector<DataCN>> dataCNSP(dataSP.size());
+        std::vector<std::vector<DataCN>> dataCNDP(dataDP.size());
+
+        dataCNDP[55] = {{37, 0, 126, DataCN::HAS_BOTH_NOTE}};
+        dataCNDP[56] = {{14, 0, 126, DataCN::HAS_BOTH_NOTE}};
+        dataCNDP[57] = {{26, 0, 62, DataCN::HAS_BOTH_NOTE}, {47, 64, 62, DataCN::HAS_BOTH_NOTE}};
+        dataCNDP[58] = {{13, 0, 126, DataCN::HAS_BOTH_NOTE}};
+
+        dataCNSP[59] = {{25, 0, 126, DataCN::HAS_BOTH_NOTE}};
+        dataCNSP[60] = {{14, 0, 62, DataCN::HAS_BOTH_NOTE}, {37, 64, 62, DataCN::HAS_BOTH_NOTE}};
+        dataCNSP[61] = {{16, 0, 62, DataCN::HAS_BOTH_NOTE}, {47, 64, 62, DataCN::HAS_BOTH_NOTE}};
+        dataCNSP[62] = {{26, 0, 62, DataCN::HAS_BOTH_NOTE}, {17, 64, 62, DataCN::HAS_BOTH_NOTE}};
+
+        /*std::vector<uint16_t> measureSizes(dataSP.size());
         measureSizes.back() = 24;
 
-        std::vector<std::vector<std::string>> bpms = {{}, {"1500"}};
+        std::vector<std::vector<std::string>> bpms = {{}, {"1500"}};*/
 
-        load(std::move(dataSP), {}, {}, {}, std::move(measureSizes), std::move(bpms), PLAYMODE_SP);
+        std::vector<uint16_t> measureSizes(dataSP.size());
+
+        std::vector<std::vector<std::string>> bpms = {{}, {"1880"}};
+
+        // load(std::move(dataSP), {}, {}, {}, std::move(measureSizes), std::move(bpms), PLAYMODE_SP);
+
+        // load(std::move(dataSP), std::move(dataDP), {}, {}, std::move(measureSizes), std::move(bpms), PLAYMODE_DP);
+
+        load(std::move(dataSP), std::move(dataDP), std::move(dataCNSP), std::move(dataCNDP), std::move(measureSizes), std::move(bpms), PLAYMODE_DP);
     }
 
     PlayMode Score::playMode() const
@@ -73,7 +146,12 @@ namespace TTSP
     boost::iterator_range<Score::Objects::value_type::const_iterator> Score::objects(const size_t objectLaneIdx, const uint32_t positionBegin, const uint32_t positionEnd) const
     {
         auto begin = objects_.at(objectLaneIdx).lower_bound(positionBegin);
-        auto end = objects_.at(objectLaneIdx).lower_bound(positionEnd);
+        auto end = objects_[objectLaneIdx].lower_bound(positionEnd);
+
+        if(begin != objects_[objectLaneIdx].begin())
+        {
+            -- begin;
+        }
 
         return {begin, end};
     }
@@ -81,6 +159,338 @@ namespace TTSP
     namespace
     {
         typedef boost::archive::iterators::detail::to_6_bit<char> FromBase64CharFn;
+
+        void parseData(const std::string &data, const size_t measureNum, const uint32_t measureSize, const uint32_t measurePos,
+            const size_t *keyToObjectLaneIdxMap, Score::Objects &objects)
+        {
+            if(data.empty())
+            {
+                return;
+            }
+
+            size_t strPos = 0;
+            try
+            {
+                if(data[0] == '#')
+                {
+                    static const FromBase64CharFn fromBase64Char;
+
+                    enum
+                    {
+                        SUBSTRMODE_DEFAULT,
+                        SUBSTRMODE_COLLAPSED,
+                        SUBSTRMODE_FINAL,
+                    } subStrMode = SUBSTRMODE_DEFAULT;
+
+                    for(++ strPos; strPos < data.size(); ++ strPos)
+                    {
+                        uint32_t start = 0, gap = 0;
+                        enum ParseType
+                        {
+                            PARSETYPE_REPEAT_SINGLE_KEY, // raw = key | ""
+                            PARSETYPE_BASE64, // raw = base64(u3 keys[]) | base64(u6 key0OrKey1BitFlag[])
+                            PARSETYPE_FREE_POSITION, // raw = base64(u6 keysBitFlag{0,1}) base64(u12 pos[])
+                        } parseType;
+
+                        std::string rawStr;
+                        const uint32_t measureLen = (subStrMode == SUBSTRMODE_DEFAULT ? 3 : 1) * measureSize / 6;
+                        switch(data[strPos])
+                        {
+                            // repeat single key; half note to 8th note; v2t=0
+#define SET_SUBSTR(s, g) \
+    do \
+    { \
+        start = (s); gap = (g); parseType = PARSETYPE_REPEAT_SINGLE_KEY; \
+        if(subStrMode == SUBSTRMODE_DEFAULT) { rawStr.assign(1, data.at(++ strPos)); } \
+    } \
+    while(false, false)
+
+                        case 'C': SET_SUBSTR(0, 192); break;
+                        case 'c': SET_SUBSTR(96, 192); break;
+                        case 'R': SET_SUBSTR(0, 96); break;
+                        case 'r': SET_SUBSTR(48, 96); break;
+                        case 'P': SET_SUBSTR(0, 48); break;
+                        case 'p': SET_SUBSTR(24, 48); break;
+
+#undef SET_SUBSTR
+
+#define SET_SUBSTR(s, g) \
+    do \
+    { \
+        start = (s); gap = (g); parseType = PARSETYPE_BASE64; \
+        const size_t len = (measureLen + gap - 1) / gap; \
+        data.at(strPos + len); \
+        rawStr.assign(data, strPos + 1, len); \
+        strPos += len; \
+    } \
+    while(false, false)
+
+                            // half note to 32nd note; v2t=1
+                        case 'B': SET_SUBSTR(0, 192); break;
+                        case 'b': SET_SUBSTR(96, 192); break;
+                        case 'Q': SET_SUBSTR(0, 96); break;
+                        case 'q': SET_SUBSTR(48, 96); break;
+                        case 'O': SET_SUBSTR(0, 48); break;
+                        case 'o': SET_SUBSTR(24, 48); break;
+                        case 'X': SET_SUBSTR(0, 24); break;
+                        case 'x': SET_SUBSTR(12, 24); break;
+                        case 'Z': SET_SUBSTR(0, 12); break;
+
+                            // 6th note to 24th note; v2t=1
+                        case 'S': SET_SUBSTR(0, 64); break;
+                        case 's': SET_SUBSTR(32, 64); break;
+                        case 'T': SET_SUBSTR(0, 32); break;
+                        case 't': SET_SUBSTR(16, 32); break;
+                        case 'U': SET_SUBSTR(0, 16); break;
+
+#undef SET_SUBSTR
+
+                            // constant (including self); v2t=2; v2p not used
+                        case '1': case '2': case '3': case '4': case '5': case '6': case '7':
+                            // assert(subStrMode == SUBSTRMODE_DEFAULT); ?
+
+                            data.at(strPos + 2);
+
+                            parseType = PARSETYPE_FREE_POSITION;
+                            rawStr.assign(data, strPos, 3);
+                            strPos += 2; // +1 in for statement above
+                            break;
+
+                            // multi keys (including key #1)
+                        case '9':
+                            // assert(subStrMode == SUBSTRMODE_DEFAULT); ?
+
+                            data.at(strPos + 3);
+
+                            rawStr = "1";
+                            rawStr.append(data, strPos + 2, 2);
+                            // don't break
+
+                            // multi keys (excluding key #1)
+                        case '8':
+                            parseType = PARSETYPE_FREE_POSITION;
+
+                            {
+                                const int8_t keysToRepeat = fromBase64Char(data.at(strPos + 1));
+                                for(size_t key = 2; key < SideKeyCount; ++ key)
+                                {
+                                    if(keysToRepeat & (1 << (key - 2)))
+                                    {
+                                        rawStr += fmt::format("{}", key);
+                                        rawStr.append(data, strPos + 2, 2);
+                                    }
+                                }
+                            }
+
+                            strPos += 3;
+                            break;
+
+                            // modifier
+                        case '-':
+                            subStrMode = SUBSTRMODE_COLLAPSED;
+                            continue; // not break
+
+                            // finalizer
+                        case '_':
+                            subStrMode = SUBSTRMODE_FINAL;
+                            parseType = PARSETYPE_FREE_POSITION;
+                            if(strPos >= data.size() - 1)
+                            {
+                                rawStr = "AA";
+                            }
+                            else
+                            {
+                                rawStr = data.substr(strPos + 1);
+                            }
+                            break;
+
+                            // error
+                        default:
+                            throw(std::invalid_argument(fmt::format("unknown data character: {} at character index {}, measure {} ({})", data[strPos], strPos, measureNum, data)));
+                        }
+
+                        // assert(subStrMode != SUBSTRMODE_FINAL || parseType == PARSETYPE_FREE_POSITION); ?
+
+                        // convert rawStr to keyStr
+                        std::string keyStr; // list of keys
+                        if(parseType == PARSETYPE_REPEAT_SINGLE_KEY)
+                        {
+                            keyStr.assign((measureSize - start + gap - 1) / gap, (subStrMode == SUBSTRMODE_DEFAULT) ? rawStr[0] : '1');
+                        }
+                        else if(parseType == PARSETYPE_BASE64) // split each 6-bit-digit into 2 keys
+                        {
+                            if(subStrMode == SUBSTRMODE_DEFAULT)
+                            {
+                                for(const char ch : rawStr)
+                                {
+                                    const int bin = fromBase64Char(ch);
+                                    // assert(bin >= 0);
+                                    keyStr += fmt::format("{}{}", (bin & 0x38) >> 3, bin & 0x07);
+                                }
+                            }
+                            else // key #1 only
+                            {
+                                for(const char ch : rawStr)
+                                {
+                                    const int bin = fromBase64Char(ch);
+                                    // assert(bin >= 0);
+                                    for(int i = 5; i >= 0; -- i)
+                                    {
+                                        keyStr += fmt::format("{}", (bin >> i) & 0x01);
+                                    }
+                                }
+                            }
+                        }
+
+                        {
+                            size_t i = 0;
+                            if(parseType != PARSETYPE_FREE_POSITION)
+                            {
+                                for(uint32_t posInMeasure = start; posInMeasure < measureSize; posInMeasure += gap, ++ i)
+                                {
+                                    const char keyCh = keyStr.at(i);
+                                    if(keyCh != '0')
+                                    {
+                                        size_t key = 0;
+                                        if(subStrMode == SUBSTRMODE_DEFAULT)
+                                        {
+                                            key = keyCh - '0';
+                                            // assert(key < SideKeyCount);
+                                        }
+                                        objects[keyToObjectLaneIdxMap[key]].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for(; i < rawStr.size(); i += 2)
+                                {
+                                    size_t key = 0;
+                                    if(subStrMode == SUBSTRMODE_DEFAULT)
+                                    {
+                                        key = rawStr[i] - '0';
+                                        // assert(key < SideKeyCount);
+                                        ++ i;
+                                    }
+
+                                    const uint32_t posInMeasure = (static_cast<uint32_t>(fromBase64Char(rawStr.at(i))) << 6) | fromBase64Char(rawStr.at(i + 1));
+                                    objects[keyToObjectLaneIdxMap[key]].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
+                                }
+                            }
+                        }
+
+                        if(subStrMode == SUBSTRMODE_FINAL)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    uint16_t totalBeats = 0;
+                    if(data[0] == 'x')
+                    {
+                        data.at(3);
+
+                        size_t lastIdx;
+                        totalBeats = static_cast<uint16_t>(std::stoul(data.substr(1, 3), &lastIdx, 16));
+
+                        if(lastIdx < 3)
+                        {
+                            strPos += lastIdx + 1;
+                            throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", data[strPos], strPos, measureNum, data)));
+                        }
+
+                        strPos = 4;
+                    }
+                    else
+                    {
+                        totalBeats = static_cast<uint16_t>(data.size());
+                    }
+
+                    for(uint16_t currentBeat = 0; strPos < data.size(); strPos += 2, currentBeat += 2)
+                    {
+                        while(data.at(strPos) == '@')
+                        {
+                            size_t lastIdx;
+                            currentBeat += static_cast<uint16_t>(std::stoul(data.substr(strPos + 1, 2), &lastIdx, 16) * 2);
+                            if(lastIdx < 2)
+                            {
+                                strPos += lastIdx + 1;
+                                throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", data[strPos], strPos, measureNum, data)));
+                            }
+                            strPos += 3;
+                        }
+
+                        size_t lastIdx;
+                        const uint16_t keysBitFlag = static_cast<uint16_t>(std::stoul(data.substr(strPos, 2), &lastIdx, 16));
+                        if(lastIdx < 2)
+                        {
+                            strPos += lastIdx;
+                            throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", data[strPos], strPos, measureNum, data)));
+                        }
+
+                        for(size_t key = 0; key < SideKeyCount; ++ key)
+                        {
+                            if(keysBitFlag >> key == 0)
+                            {
+                                break;
+                            }
+
+                            if(((keysBitFlag >> key) & 0x01) == 0x01)
+                            {
+                                const uint32_t posInMeasure = measureSize * currentBeat / totalBeats;
+                                objects[keyToObjectLaneIdxMap[key]].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
+                            }
+                        }
+                    }
+                }
+            }
+            catch(const std::out_of_range &)
+            {
+                throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (insufficient data length)", data[strPos], strPos, measureNum, data)));
+            }
+            catch(const boost::archive::iterators::dataflow_exception &)
+            {
+                throw(std::invalid_argument(fmt::format("invalid data characters at measure {} ({}) (not base64 character)", measureNum, data)));
+            }
+        }
+
+        void parseCNData(const std::vector<DataCN> &data, const size_t /*measureNum*/, const uint32_t /*measureSize*/, const uint32_t measurePos,
+            const size_t *keyToObjectLaneIdxMap, Score::Objects &objects)
+        {
+            if(data.empty())
+            {
+                return;
+            }
+
+            try
+            {
+                for(const DataCN &cn : data)
+                {
+                    for(uint32_t keys = cn.sideKeyIdxs_; keys > 0; keys /= 10)
+                    {
+                        const uint8_t key = static_cast<uint8_t>(keys % 10);
+                        // assert(key < SideKeyCount);
+
+                        if(cn.type_ & 0x01) // has start note
+                        {
+                            const uint32_t posInMeasure = cn.position_ * BaseMeasureSize / BaseMeasureSizeCN;
+                            objects[keyToObjectLaneIdxMap[key]].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_CN_START});
+                        }
+
+                        if(cn.type_ & 0x02) // has end note
+                        {
+                            const uint32_t posInMeasure = (cn.position_ + cn.length_) * BaseMeasureSize / BaseMeasureSizeCN;
+                            objects[keyToObjectLaneIdxMap[key]].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_CN_END});
+                        }
+                    }
+                }
+            }
+            catch(...)
+            {
+            }
+        }
     }
 
     void Score::load(std::vector<std::string> dataSP, std::vector<std::string> dataDP, std::vector<std::vector<DataCN>> dataCNSP, std::vector<std::vector<DataCN>> dataCNDP,
@@ -213,299 +623,18 @@ namespace TTSP
             objects_[ObjectLaneIdxMeasureLine].emplace(measurePos, Object{OBJECTTYPE_MEASURELINE});
 
             // notes
-            const std::string &spStr = dataSP[measureNum];
-            if(!spStr.empty())
+            parseData(dataSP[measureNum], measureNum, measureSize, measurePos, SideKeyToObjectLaneIdxMap1P, objects_);
+            if(playMode == PLAYMODE_DP)
             {
-                size_t strPos = 0;
-                try
-                {
-                    if(spStr[0] == '#')
-                    {
-                        static const FromBase64CharFn fromBase64Char;
-
-                        enum
-                        {
-                            SUBSTRMODE_DEFAULT,
-                            SUBSTRMODE_COLLAPSED,
-                            SUBSTRMODE_FINAL,
-                        } subStrMode = SUBSTRMODE_DEFAULT;
-
-                        for(++ strPos; strPos < spStr.size(); ++ strPos)
-                        {
-                            uint32_t start = 0, gap = 0;
-                            enum ParseType
-                            {
-                                PARSETYPE_REPEAT_SINGLE_KEY, // raw = key | ""
-                                PARSETYPE_BASE64, // raw = base64(u3 keys[]) | base64(u6 key0OrKey1BitFlag[])
-                                PARSETYPE_FREE_POSITION, // raw = base64(u6 keysBitFlag{0,1}) base64(u12 pos[])
-                            } parseType;
-
-                            std::string rawStr;
-                            const uint32_t measureLen = (subStrMode == SUBSTRMODE_DEFAULT ? 3 : 1) * measureSize / 6;
-                            switch(spStr[strPos])
-                            {
-                                // repeat single key; half note to 8th note; v2t=0
-#define SET_SUBSTR(s, g) \
-    do \
-    { \
-        start = (s); gap = (g); parseType = PARSETYPE_REPEAT_SINGLE_KEY; \
-        if(subStrMode == SUBSTRMODE_DEFAULT) { rawStr.assign(1, spStr.at(++ strPos)); } \
-    } \
-    while(false, false)
-
-                            case 'C': SET_SUBSTR(0, 192); break;
-                            case 'c': SET_SUBSTR(96, 192); break;
-                            case 'R': SET_SUBSTR(0, 96); break;
-                            case 'r': SET_SUBSTR(48, 96); break;
-                            case 'P': SET_SUBSTR(0, 48); break;
-                            case 'p': SET_SUBSTR(24, 48); break;
-
-#undef SET_SUBSTR
-
-#define SET_SUBSTR(s, g) \
-    do \
-    { \
-        start = (s); gap = (g); parseType = PARSETYPE_BASE64; \
-        const size_t len = (measureLen + gap - 1) / gap; \
-        spStr.at(strPos + len); \
-        rawStr.assign(spStr, strPos + 1, len); \
-        strPos += len; \
-    } \
-    while(false, false)
-
-                                // half note to 32nd note; v2t=1
-                            case 'B': SET_SUBSTR(0, 192); break;
-                            case 'b': SET_SUBSTR(96, 192); break;
-                            case 'Q': SET_SUBSTR(0, 96); break;
-                            case 'q': SET_SUBSTR(48, 96); break;
-                            case 'O': SET_SUBSTR(0, 48); break;
-                            case 'o': SET_SUBSTR(24, 48); break;
-                            case 'X': SET_SUBSTR(0, 24); break;
-                            case 'x': SET_SUBSTR(12, 24); break;
-                            case 'Z': SET_SUBSTR(0, 12); break;
-
-                                // 6th note to 24th note; v2t=1
-                            case 'S': SET_SUBSTR(0, 64); break;
-                            case 's': SET_SUBSTR(32, 64); break;
-                            case 'T': SET_SUBSTR(0, 32); break;
-                            case 't': SET_SUBSTR(16, 32); break;
-                            case 'U': SET_SUBSTR(0, 16); break;
-
-#undef SET_SUBSTR
-
-                                // constant (including self); v2t=2; v2p not used
-                            case '1': case '2': case '3': case '4': case '5': case '6': case '7':
-                                // assert(subStrMode == SUBSTRMODE_DEFAULT); ?
-
-                                spStr.at(strPos + 2);
-
-                                parseType = PARSETYPE_FREE_POSITION;
-                                rawStr.assign(spStr, strPos, 3);
-                                strPos += 2; // +1 in for statement above
-                                break;
-
-                                // multi keys (including key #1)
-                            case '9':
-                                // assert(subStrMode == SUBSTRMODE_DEFAULT); ?
-
-                                spStr.at(strPos + 3);
-
-                                rawStr = "1";
-                                rawStr.append(spStr, strPos + 2, 2);
-                                // don't break
-
-                                // multi keys (excluding key #1)
-                            case '8':
-                                parseType = PARSETYPE_FREE_POSITION;
-
-                                {
-                                    const int8_t keysToRepeat = fromBase64Char(spStr.at(strPos + 1));
-                                    for(size_t key = 2; key <= 7; ++ key)
-                                    {
-                                        if(keysToRepeat & (1 << (key - 2)))
-                                        {
-                                            rawStr += fmt::format("{}", key);
-                                            rawStr.append(spStr, strPos + 2, 2);
-                                        }
-                                    }
-                                }
-
-                                strPos += 3;
-                                break;
-
-                                // modifier
-                            case '-':
-                                subStrMode = SUBSTRMODE_COLLAPSED;
-                                continue; // not break
-
-                                // finalizer
-                            case '_':
-                                subStrMode = SUBSTRMODE_FINAL;
-                                parseType = PARSETYPE_FREE_POSITION;
-                                if(strPos >= spStr.size() - 1)
-                                {
-                                    rawStr = "AA";
-                                }
-                                else
-                                {
-                                    rawStr = spStr.substr(strPos + 1);
-                                }
-                                break;
-
-                                // error
-                            default:
-                                throw(std::invalid_argument(fmt::format("unknown data character: {} at character index {}, measure {} ({})", spStr[strPos], strPos, measureNum, spStr)));
-                            }
-
-                            // assert(subStrMode != SUBSTRMODE_FINAL || parseType == PARSETYPE_FREE_POSITION); ?
-
-                            // convert rawStr to keyStr
-                            std::string keyStr; // list of keys
-                            if(parseType == PARSETYPE_REPEAT_SINGLE_KEY)
-                            {
-                                keyStr.assign((measureSize - start + gap - 1) / gap, (subStrMode == SUBSTRMODE_DEFAULT) ? rawStr[0] : '1');
-                            }
-                            else if(parseType == PARSETYPE_BASE64) // split each 6-bit-digit into 2 keys
-                            {
-                                if(subStrMode == SUBSTRMODE_DEFAULT)
-                                {
-                                    for(const char ch : rawStr)
-                                    {
-                                        const int bin = fromBase64Char(ch);
-                                        // assert(bin >= 0);
-                                        keyStr += fmt::format("{}{}", (bin & 0x38) >> 3, bin & 0x07);
-                                    }
-                                }
-                                else // key #1 only
-                                {
-                                    for(const char ch : rawStr)
-                                    {
-                                        const int bin = fromBase64Char(ch);
-                                        // assert(bin >= 0);
-                                        for(int i = 5; i >= 0; -- i)
-                                        {
-                                            keyStr += fmt::format("{}", (bin >> i) & 0x01);
-                                        }
-                                    }
-                                }
-                            }
-
-                            {
-                                size_t i = 0;
-                                if(parseType != PARSETYPE_FREE_POSITION)
-                                {
-                                    for(uint32_t posInMeasure = start; posInMeasure < measureSize; posInMeasure += gap, ++ i)
-                                    {
-                                        const char keyCh = keyStr.at(i);
-                                        if(keyCh != '0')
-                                        {
-                                            size_t key = keyCh - '0';
-                                            if(subStrMode != SUBSTRMODE_DEFAULT)
-                                            {
-                                                key = 0;
-                                            }
-                                            objects_[ObjectLaneIdxKeyBegin + key].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    for(; i < rawStr.size(); i += 2)
-                                    {
-                                        size_t key = 0;
-                                        if(subStrMode == SUBSTRMODE_DEFAULT)
-                                        {
-                                            key = rawStr[i] - '0';
-                                            ++ i;
-                                        }
-
-                                        const uint32_t posInMeasure = (static_cast<uint32_t>(fromBase64Char(rawStr.at(i))) << 6) | fromBase64Char(rawStr.at(i + 1));
-                                        objects_[ObjectLaneIdxKeyBegin + key].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
-                                    }
-                                }
-                            }
-
-                            if(subStrMode == SUBSTRMODE_FINAL)
-                            {
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        uint16_t totalBeats = 0;
-                        if(spStr[0] == 'x')
-                        {
-                            spStr.at(3);
-
-                            size_t lastIdx;
-                            totalBeats = static_cast<uint16_t>(std::stoul(spStr.substr(1, 3), &lastIdx, 16));
-
-                            if(lastIdx < 3)
-                            {
-                                strPos += lastIdx + 1;
-                                throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", spStr[strPos], strPos, measureNum, spStr)));
-                            }
-
-                            strPos = 4;
-                        }
-                        else
-                        {
-                            totalBeats = static_cast<uint16_t>(spStr.size());
-                        }
-
-                        for(uint16_t currentBeat = 0; strPos < spStr.size(); strPos += 2, currentBeat += 2)
-                        {
-                            while(spStr.at(strPos) == '@')
-                            {
-                                size_t lastIdx;
-                                currentBeat += static_cast<uint16_t>(std::stoul(spStr.substr(strPos + 1, 2), &lastIdx, 16) * 2);
-                                if(lastIdx < 2)
-                                {
-                                    strPos += lastIdx + 1;
-                                    throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", spStr[strPos], strPos, measureNum, spStr)));
-                                }
-                                strPos += 3;
-                            }
-
-                            size_t lastIdx;
-                            const uint16_t keysBitFlag = static_cast<uint16_t>(std::stoul(spStr.substr(strPos, 2), &lastIdx, 16));
-                            if(lastIdx < 2)
-                            {
-                                strPos += lastIdx;
-                                throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (not a hexadecimal digit)", spStr[strPos], strPos, measureNum, spStr)));
-                            }
-
-                            for(size_t key = 0; key <= 7; ++ key)
-                            {
-                                if(keysBitFlag >> key == 0)
-                                {
-                                    break;
-                                }
-
-                                if(((keysBitFlag >> key) & 0x01) == 0x01)
-                                {
-                                    const uint32_t posInMeasure = measureSize * currentBeat / totalBeats;
-                                    objects_[ObjectLaneIdxKeyBegin + key].emplace(measurePos + posInMeasure, Object{OBJECTTYPE_NOTE});
-                                }
-                            }
-                        }
-                    }
-                }
-                catch(const std::out_of_range &)
-                {
-                    throw(std::invalid_argument(fmt::format("invalid data character: {} at character index {}, measure {} ({}) (insufficient data length)", spStr[strPos], strPos, measureNum, spStr)));
-                }
-                catch(const boost::archive::iterators::dataflow_exception &)
-                {
-                    throw(std::invalid_argument(fmt::format("invalid data characters at measure {} ({}) (not base64 character)", measureNum, spStr)));
-                }
+                parseData(dataDP[measureNum], measureNum, measureSize, measurePos, SideKeyToObjectLaneIdxMap2P, objects_);
             }
 
-            // TODO: dataDP
-
             // CNs
-            // TODO: dataCNSP, dataCNDP
+            parseCNData(dataCNSP[measureNum], measureNum, measureSize, measurePos, SideKeyToObjectLaneIdxMap1P, objects_);
+            if(playMode == PLAYMODE_DP)
+            {
+                parseCNData(dataCNDP[measureNum], measureNum, measureSize, measurePos, SideKeyToObjectLaneIdxMap2P, objects_);
+            }
 
             for(const std::string &bpm : bpms[measureNum])
             {
@@ -809,10 +938,20 @@ namespace TTSP
         timePosition_ = timePosition;
     }
 
+    namespace
+    {
+    }
+
     void ScorePlayback::position(const uint32_t position)
     {
-        // TODO: temporary; position to timePosition_
-        timePosition_ = std::chrono::nanoseconds(position * 1000000);
+        // TODO: variable BPM
+
+        double beats = position * 4.0 / BaseMeasureSize;
+
+        timePosition_ = std::chrono::nanoseconds(static_cast<int64_t>(
+            beats
+            * std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count()
+            / score_->firstBpm()));
     }
 
     uint32_t ScorePlayback::position() const
@@ -822,10 +961,13 @@ namespace TTSP
             return 0;
         }
 
+        // TODO: variable BPM
+
         // BaseMeasureSize: 4 beats
         // 120 BPM: 120 Beats / 1 minutes
 
-        double timePositionMinutes = static_cast<double>(timePosition_.count()) / std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count();
+        double timePositionMinutes = static_cast<double>(timePosition_.count())
+            / std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::minutes(1)).count();
 
         return static_cast<uint32_t>((score_->firstBpm() * BaseMeasureSize / 4) * timePositionMinutes);
     }
